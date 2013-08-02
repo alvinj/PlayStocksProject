@@ -1,4 +1,4 @@
-# Play Framework "Anorm" CRUD Examples
+## Play Framework "Anorm" CRUD Examples
 
 This project contains a collection of Play Framework Anorm
 "CRUD" (create, read, update, delete) examples.
