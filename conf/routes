@@ -1,0 +1,21 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Stocks.list
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
+
+#-------
+# STOCKS
+#-------
+
+GET     /stocks                          controllers.Stocks.list
+GET     /stocks/:id/edit                 controllers.Stocks.edit(id: Long)
+GET     /stocks/:id/delete               controllers.Stocks.delete(id: Long)
+GET     /stocks/:symbol/getCurrentPrice  controllers.Stocks.getCurrentPrice(symbol: String)
+GET     /stocks/current_prices           controllers.Stocks.currentPrices
+GET     /stocks/add                      controllers.Stocks.add
+POST    /stocks                          controllers.Stocks.submit

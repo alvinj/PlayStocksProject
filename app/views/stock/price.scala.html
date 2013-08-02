@@ -1,0 +1,12 @@
+@(symbol: String, price: String)
+
+@import helper._
+@import helper.twitterBootstrap._
+
+@main("Stocks") {
+
+<p>The price of @symbol is @price</p>
+  
+<a href="@routes.Stocks.list" class="btn">List of Stocks</a>
+  
+}

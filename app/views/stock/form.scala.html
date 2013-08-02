@@ -1,0 +1,48 @@
+@(stockForm: Form[Stock])
+
+@import helper._
+@import helper.twitterBootstrap._
+
+@*
+@title = {
+  Add a new stock <small><a href="@routes.Stocks.editForm">Or edit an existing stock</a></small>
+}
+*@
+
+@main("Stocks") {
+  
+  @if(stockForm.hasErrors) {
+    <div class="alert-message error">
+      <p><strong>Oops</strong> Please to fix all errors</p>
+      <ul>
+        @stockForm.errors.map { error =>
+          <li>@error</li>
+        }
+      </ul>
+    </div>
+  }
+  
+  @helper.form(action = routes.Stocks.submit) {
+    
+     <h1>Stock information</h1>
+     
+     @inputText(
+       stockForm("symbol"), 
+       '_label -> "Symbol"
+     )
+     
+     @inputText(
+       stockForm("company"), 
+       '_label -> "Company"
+     )
+      
+    @* <input type="hidden" value="@addressForm("id").value" name="id" /> *@
+      
+    <div class="actions">
+      <input type="submit" class="btn primary" value="Insert">
+      <a href="@routes.Stocks.list" class="btn">Cancel</a>
+    </div>
+    
+  }
+  
+}

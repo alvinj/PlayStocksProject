@@ -1,0 +1,26 @@
+@(stocks: List[(String, BigDecimal)])
+
+@import helper._
+
+@title = {
+  <a href="@routes.Stocks.add">add a new stock</a>
+}
+
+@main("Stocks") {
+  
+  <h1>Dude, you have @stocks.size Stock(s)</h1>
+  
+  <table cellpadding="5">
+	  @stocks.map { stock =>
+	    <tr>
+	       <td>@stock._1</td>
+	       <td align="right">&nbsp;&nbsp;@stock._2</td>
+	    </tr>
+	  }
+	</table>
+
+  
+  <p><br /><a href="@routes.Stocks.list" class="btn">List of Stocks</a></p>
+  
+} @* end main *@
+
